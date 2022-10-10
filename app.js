@@ -1,15 +1,39 @@
-const colors = ["green", "red", "rgba(133,122,200)", "#f15025"];
+const projects = [
+  {
+    id: 1,
+    name: "Color flipper",
+    img: "./assets/colorPicker.png",
+    url: "color-flipper/index.html",
+  },
+  {
+    id: 2,
+    name: "Counter",
+    img: "./assets/counter.png",
+    url: "counter/index.html",
+  },
+  {
+    id: 3,
+    name: "Reviews",
+    img: "./assets/reviews.png",
+    url: "reviewsproject/index.html",
+  },
+];
 
-const btn = document.getElementById("btn");
-const color = document.querySelector(".color");
+const appsContainer = document.querySelector(".wrapper__projects");
 
-btn.addEventListener("click", () => {
-  const randomNumber = getRandomNumber();
-  console.log(randomNumber);
-  document.body.style.backgroundColor = colors[randomNumber];
-  color.textContent = colors[randomNumber];
-});
+const generateProjects = (apps) => {
+  appsContainer.innerHTML = "";
 
-const getRandomNumber = () => {
-  return Math.floor(Math.random() * colors.length);
+  apps.forEach((app) => {
+    const appDiv = document.createElement("div");
+    appDiv.classList.add("project");
+    appDiv.innerHTML = `
+    <a class="link" href=${app.url}>
+    <img class="project__img" src="${app.img}"/>
+    <h4 class="project__title">${app.name}</h4></a>
+    `;
+    appsContainer.appendChild(appDiv);
+  });
 };
+
+generateProjects(projects);

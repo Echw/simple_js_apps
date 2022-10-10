@@ -62,17 +62,9 @@ body {
 .project__img {
   width: 15rem;
   height: 15rem;
+  object-fit: cover;
+}
 
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.color__flipper {
-  background-image: url("./assets/colorPicker.png");
-}
-.counter {
-  background-image: url("./assets/counter.png");
-}
 .project__title {
   text-align: center;
 }
